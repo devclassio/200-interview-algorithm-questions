@@ -35,7 +35,7 @@ class SolutionTLE:
     Best way? DP
     '''
 
-    def coinChange(self, coins: 'List[int]', amount: 'int') -> 'int':
+    def coinChange(self, coins, amount):
         dp = [float('inf')] * (amount + 1)
 
         def helper(coins, amount, used):
@@ -61,7 +61,7 @@ class SolutionTLE:
 
 
 class Solution:
-    def coinChange(self, coins: List[int], amount: int) -> int:
+    def coinChange(self, coins, amount) -> int:
         dp = [float('inf')] * (amount + 1)
         dp[0] = 0
 

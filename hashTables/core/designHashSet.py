@@ -28,6 +28,9 @@ Please do not use the built-in HashSet library.
 
 
 class MyHashSet:
+    '''
+    Hacky solution. Real solution with linked list is coming soon.
+    '''
 
     def __init__(self):
         self.vals = {}

@@ -18,7 +18,7 @@ Process recursively child nodes if they are not None: helper(node.left / node.ri
 
 
 class SolutionDFSLeetCode:
-    def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
+    def levelOrderBottom(self, root):
         levels = []
         if not root:
             return levels
@@ -42,7 +42,7 @@ class SolutionDFSLeetCode:
 
 
 class SolutionOmer:
-    def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
+    def levelOrderBottom(self, root):
         if root is None:
             return []
 

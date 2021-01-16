@@ -18,12 +18,12 @@ Output: true
 '''
 
 
-class Solution:
+class SolutionOptimalRuntime:
     '''
     Time, Space: O(n)
     '''
 
-    def containsDuplicate(self, nums: List[int]) -> bool:
+    def containsDuplicate(self, nums):
         self.seen = {}
         for num in nums:
             if num in self.seen:
@@ -32,8 +32,8 @@ class Solution:
         return False
 
 
-class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
+class SolutionOptimalSpace:
+    def containsDuplicate(self, nums):
         nums.sort()
         for i in range(1, len(nums)):
             if nums[i] == nums[i - 1]:
