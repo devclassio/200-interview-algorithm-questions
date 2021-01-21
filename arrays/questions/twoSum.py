@@ -58,12 +58,3 @@ class Solution:
                     _, jIndex = yDict[compliment][1]
                     return [index, jIndex]
         return []
-
-    def twoSumPretty(self, nums, target):
-        d = {}
-        for i, n in enumerate(nums):
-            m = target - n
-            if m in d:
-                return [d[m], i]
-            else:
-                d[n] = i

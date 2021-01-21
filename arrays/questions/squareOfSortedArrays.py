@@ -1,9 +1,4 @@
 '''
-https://leetcode.com/problems/squares-of-a-sorted-array/discuss/310865/Python%3A-A-comparison-of-lots-of-approaches!-Sorting-two-pointers-deque-iterator-generator
-
-REVIEW!!! Why is this considered O(1) aux space?
-See and understand iterator solution
-
 Given an array of integers A sorted in non-decreasing order, return an array of the squares of each number, also in sorted non-decreasing order.
 
 Example 1:
@@ -22,3 +17,22 @@ Note:
 -10000 <= A[i] <= 10000
 A is sorted in non-decreasing order.
 '''
+
+
+class Solution:
+    def sortedSquares(self, A):
+        if not A:
+            return A
+
+        res = []
+
+        s, e = 0, len(A) - 1
+        while s <= e:
+            if abs(A[s]) > abs(A[e]):
+                res.append(A[s] ** 2)
+                s += 1
+            else:
+                res.append(A[e] ** 2)
+                e -= 1
+
+        res.reverse()
