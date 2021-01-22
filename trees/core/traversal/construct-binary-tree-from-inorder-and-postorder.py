@@ -1,6 +1,4 @@
 '''
-https://leetcode.com/explore/learn/card/data-structure-tree/133/conclusion/942/
-
 Given inorder and postorder traversal of a tree, construct the binary tree.
 
 Note:
@@ -12,16 +10,11 @@ inorder = [9,3,15,20,7]
 postorder = [9,15,7,20,3]
 Return the following binary tree:
 
-    3
-   / \
-  9  20
-    /  \
-   15   7
-
-inorder: : List[int]
-postorder: : List[int]
-
-return val: TreeNode
+     3
+    / \
+    9 20
+      / \
+     15  7
 '''
 
 
@@ -30,27 +23,6 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-
-
-class Solution:
-    def buildTree(self, inorder, postorder):
-        # Base case
-        if not inorder:
-            return None
-
-        # Last el in postorder is always root
-        root = TreeNode(postorder[-1])
-
-        # Inorder Subtrees
-        rootInorderIndex = inorder.index(root.val)
-        lsti, rsti = inorder[:rootInorderIndex], inorder[rootInorderIndex + 1:]
-
-        root.left = self.buildTree(lsti, list(
-            filter(lambda el: el in lsti, postorder)))
-        root.right = self.buildTree(rsti, list(
-            filter(lambda el: el in rsti, postorder)))
-
-        return root
 
 
 class ImprovedRecursiveSolution:
@@ -62,7 +34,7 @@ class ImprovedRecursiveSolution:
         inorderIndex = inorder.index(root.val)
 
         '''
-        Why does swapping line 60 and 61 break the code?
+        Why does swapping order of root.right and root.left break code?
         That's because inorder traversal goes 'Left-Parent-Right' and 
         postorder traversal goes 'Left-Right-Parent'. 
         And, postorder.pop() keeps picking the right-most element of the list, 

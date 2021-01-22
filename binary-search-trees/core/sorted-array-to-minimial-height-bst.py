@@ -1,8 +1,25 @@
-import collections
+'''
+Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
+
+For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
+
+Example:
+
+Given the sorted array: `[-10,-3,0,5,9],`
+
+One possible answer is: `[0,-3,9,-10,null,5],` which represents the following height balanced BST:
+
+      0
+     / \
+    -3 9
+    / /
+
+-10 5
+'''
 
 
 class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
+    def __init__(self, val, left, right):
         self.val = val
         self.left = left
         self.right = right
@@ -26,40 +43,3 @@ class Solution:
         l = self.sortedArrayToBST(nums[0:m])
         r = self.sortedArrayToBST(nums[m + 1:])
         return TreeNode(nums[m], l, r)
-
-
-'''
-Given a sorted array with unique ints, write algo to
-create binary search tree with min height
-
-[1,2,3,4,5,6,7], len 7, middle 3
-      4
-    2   6
-   1 3 5 7
-
-[1,2], len 1, middle 0
-    1
-     2
-
-[1,2,3], len 2, middle 1
-     1
-    2 3
-
-[1,2,3,4], len 3, middle 1
-     1
-    2 3
-   4
-'''
-
-
-# print(arrToBst([]))
-# print(arrToBst([1]))
-# print(arrToBst([1, 2]))
-# print(arrToBst([1, 2, 3]))
-# print(arrToBst([1, 2, 3, 4]))
-# print(arrToBst([1, 2, 3, 4, 5]))
-
-print("******* In order 1 *******")
-# postOrder(root, [])
-# preOrder(root, [])
-# inOrder(root, [])

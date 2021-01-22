@@ -171,5 +171,5 @@ root.right.right = Node(7)
 
 root.left.left.left = Node(8)
 
-pph-rint("**** Test 4 **** ")
+print("**** Test 4 **** ")
 print(list(dfsR(root)))

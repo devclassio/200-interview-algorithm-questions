@@ -12,7 +12,6 @@ return 2.
 
 Note: You may assume the string contains only lowercase English letters.
 
-https://leetcode.com/problems/first-unique-character-in-a-string/
 '''
 
 
