@@ -1,4 +1,5 @@
 '''
+Full write-up: https://devclass.io/generate-permutations
 Generate permutations -> Compute the permutations of an array.
 Write a program that takes as input an array of distinct integers
 and generates all permuations of that array
@@ -12,43 +13,32 @@ and generates all permuations of that array
 '''
 
 
-def combos(s):
+class Solution:
+    def permute(self, nums):
+        if len(nums) == 0:
+            return []
 
-    if len(s) == 0:
-        return []
+        if len(nums) == 1:
+            return [nums]
 
-    if len(s) == 1:
-        return s
+        if len(nums) == 2:
+            return [nums, [nums[1], nums[0]]]
 
-    if len(s) == 2:
-        return [s, [s[1], s[0]]]
+        all = []
+        for i in range(len(nums)):
+            nums[0], nums[i] = nums[i], nums[0]
+            for p in self.permute(nums[1:]):
+                all.append([nums[0]] + p)
 
-    all = []
-    for i, pivot in enumerate(s):
-        s[0], s[i] = s[i], s[0]
-        for p in combos(s[1:]):
-            all.append([s[0]] + p)
-
-    return all
-
-
-def printCombos(o):
-    all = combos(o)
-    for s in all:
-        print(s)
+        return all
 
 
-print("**** Test 0 *****")
-printCombos([])
-
-print("**** Test 1 *****")
-printCombos([1])
-
-print("**** Test 2 *****")
-printCombos([1, 2])
-
-print("**** Test 3 *****")
-printCombos([1, 2, 3])
-
-print("**** Test 4 *****")
-printCombos([1, 2, 3, 4])
+class SolutionPrettified(object):
+    def permute(self, nums):
+        if len(nums) == 1:
+            return [nums]
+        res = []
+        for i in range(len(nums)):
+            for permutation in self.permute(nums[:i] + nums[i+1:]):
+                res.append([nums[i]] + permutation)
+        return res
